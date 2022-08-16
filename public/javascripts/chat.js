@@ -22,4 +22,13 @@ window.onload = function() {
         }
     });
 
+    sendButton.onclick = function() {
+        if(name==""||name==null){
+            console.log('Cos jest nie tak,  wpisales nick?')
+        } else {
+            const text = field.value;
+            socket.emit('send', {message: text, username: name.value});
+        }
+    }
+
 }
