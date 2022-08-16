@@ -7,4 +7,12 @@ window.onload = function() {
     var content = document.getElementById("content");
     var name = document.getElementById("name");
 
+    socket.on('message', async function(data){
+        if(data.message){
+            messages.push(data);
+        } else {
+            console.log('Error, cos nie dziala: ', data);
+        }
+    });
+
 }
