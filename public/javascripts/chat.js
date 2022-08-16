@@ -28,7 +28,15 @@ window.onload = function() {
         } else {
             const text = field.value;
             socket.emit('send', {message: text, username: name.value});
+            field.value=null;
         }
     }
+
+    field.addEventListener('keypress', async function(e){
+        const key = e.which || e.keyCode;
+        if (key==13){
+            sendButton.onclick();
+        }
+    });
 
 }
