@@ -10,6 +10,12 @@ window.onload = function() {
     socket.on('message', async function(data){
         if(data.message){
             messages.push(data);
+            var html = '';
+            for(let i=0; i<messages.length; i++){
+                html  += '<b>' + (messages[i].username ? messages[i].username : 'Server') + ': </b>';
+                html += messages[i].message + '<br />';
+            }
+            content.innerHTML = html;
         } else {
             console.log('Error, cos nie dziala: ', data);
         }
